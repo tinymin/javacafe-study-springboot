@@ -1,5 +1,11 @@
 package com.keumnim.article;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -7,13 +13,14 @@ import java.time.ZoneOffset;
 /**
  * Created by keumsunghyun on 2017. 4. 8..
  */
+@Getter
+@Setter
 public class Article {
 
     private Long id;
     private String title;
     private String author;
     private String body;
-    private OffsetDateTime created;
 
     public Article() {
     }
@@ -23,46 +30,6 @@ public class Article {
         this.title = title;
         this.author = author;
         this.body = body;
-        this.created = OffsetDateTime.now();
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public void setCreated(OffsetDateTime created) {
-        this.created = created;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public OffsetDateTime getCreated() {
-        return created;
-    }
 }

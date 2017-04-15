@@ -5,8 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.time.OffsetDateTime;
-import java.util.Date;
 
 /**
  * Created by keumsunghyun on 2017. 4. 8..
@@ -23,15 +21,15 @@ public class ArticleRepository {
 
          jdbcTemplate = new JdbcTemplate(dataSource);
 
-        String sql = "INSERT INTO ARTICLE(ID,TITLE,AUTHOR,BODY,CREATED)";
-        sql += "VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO ARTICLE(ID,TITLE,AUTHOR,BODY)";
+        sql += "VALUES(?,?,?,?)";
 
         jdbcTemplate.update(sql, new Object[]{
                 article.getId(),
                 article.getTitle(),
                 article.getAuthor(),
-                article.getBody(),
-                new Date(article.getCreated().toInstant().toEpochMilli())});
+                article.getBody()
+        });
     }
 
     public Article get(Long id) {
@@ -46,7 +44,6 @@ public class ArticleRepository {
             article.setTitle(rs.getString("TITLE"));
             article.setAuthor(rs.getString("AUTHOR"));
             article.setBody(rs.getString("BODY"));
-            article.setCreated(OffsetDateTime.now());
 
             return article;
         });

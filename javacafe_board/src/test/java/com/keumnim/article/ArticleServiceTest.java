@@ -36,7 +36,6 @@ public class ArticleServiceTest {
         assertThat(article.getAuthor(), is("작가"));
         assertThat(article.getTitle(), is("제목"));
         assertThat(article.getBody(), is("본문"));
-        assertThat(article.getCreated(), is(notNullValue()));
 
     }
 
@@ -55,6 +54,5 @@ public class ArticleServiceTest {
         assertThat(article.getAuthor(), is("작가"));
         assertThat(article.getTitle(), is("제목"));
         assertThat(article.getBody(), is("본문"));
-        assertThat(article.getCreated(), is(notNullValue()));
     }
 }
